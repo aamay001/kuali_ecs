@@ -29,7 +29,7 @@ class ElevatorController {
   request(fromFloor, toFloor) {
     console.log(`${this.name}: Requesting elevator from floor ${fromFloor} to floor ${toFloor}`);
     const elevator = this.findBestElevator(fromFloor, toFloor);
-    elevator.goToFloor(toFloor);
+    // ßelevator.goToFloor(toFloor);
   }
 
   findBestElevator(fromFloor, toFloor) {
