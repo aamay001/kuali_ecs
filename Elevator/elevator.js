@@ -32,11 +32,13 @@ class Elevator {
 
   openDoor() {
     this.doorState = DOOR_STATUS.OPEN;
+    // requirement 3
     console.log(`${this.id} : Door opened`);
   }
 
   closeDoor() {
     this.doorState = DOOR_STATUS.CLOSED;
+    // requirement 3
     console.log(`${this.id} : Door closed`);
   }
 
@@ -52,6 +54,7 @@ class Elevator {
   }
 
   logTrip(from, to, timeStart, timeEnd) {
+    // requirement 8
     this.trips++;
     // If logging to a db, include all meta
     if (this.trips >= 0) {
@@ -84,10 +87,13 @@ class Elevator {
 
   moveToFloor(floor) {
     if (floor < this.currentFloor) {
+      // requirement 5
       this.currentFloor = Math.max(1, this.currentFloor - 1);
     } else if (floor > this.currentFloor) {
+      // requirement 4
       this.currentFloor = Math.min(this.maxFloor, this.currentFloor + 1);
     }
+    // requirement 2
     this.reportFloor();
   }
 
@@ -96,6 +102,7 @@ class Elevator {
     console.log(`${this.id} : Elevator ${status ? 'in use' : 'vacant'}`);
   }
 
+  // request from inside the elevator
   userRequest(floor) {
     this.setStatus(ELEVATOR_STATUS.IN_USE);
     this.goToFloor(floor);
